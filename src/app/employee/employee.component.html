@@ -1,0 +1,17 @@
+<h1 class="w-100">Employee Details</h1>
+<div [ngStyle]="{'background-color': employeeData.age > 26 ? 'gray':'green'}"> Name: {{employeeData.name}}</div>
+<div [ngClass]="employeeData.age < 27 ?'lastRecord': 'otherRecord'"> Age: {{employeeData.age}}</div><br><br>
+
+<div [ngClass]="'lastRecord'"> ngClass with string</div>
+<div [ngClass]="['lastRecord , otherRecord']"> ngClass with array</div>
+<div [ngClass]="{'lastRecord': false , 'otherRecord':true}"> ngClass with Object</div>
+<!--<div [ngClass]="{'lastRecord': employeeData.age == 29}"> ngClass with condition</div><br>-->
+
+<div class="lastRecord"> <b>Employees Details</b></div>
+<hr>
+@for(employee of allEmployeeDetail; track employee.id; let i = $index,count=$count,first=$first,last=$last,even=$even,odd=$odd){
+    <div>index:.. {{i}}------ even:.. {{even}}------ odd:.. {{odd}}------count:...{{count}}------first:...{{first}}------last:...{{last}}</div>
+    <div > ID: {{employee.id}}</div>
+    <div > Name: {{employee.name}}</div>
+    <div> Age: {{employee.age}}</div>
+}

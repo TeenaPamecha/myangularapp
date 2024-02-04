@@ -1,0 +1,34 @@
+<div>
+  <h1>Parent Component</h1>
+  <div>
+    <button (click)="isLoginAsAdminMethod()">Login As Admin</button>
+    <button (click)="isLoginAsEmployeeMethod()">Login As Employee</button>
+    <button (click)="isLogoutMethod()">Logout</button>
+  </div>
+  <!-- one way of define the section of role base -->
+  @if(role == 'Employee'){
+    @defer{
+      <app-employee [employeeData]='user.data'></app-employee>
+    }
+  }
+  @else if(role == 'Admin'){
+    <app-home [guestData]='user.data' (childevent)="getData($event)"></app-home>
+    <!-- <app-home [guestData]='user.data' (childevent)="inputValue = $event"></app-home> -->
+    <div>input value:.. {{inputValue}}</div>
+  }
+  @else{
+    <div> Guest User </div>
+  }
+ <!-- second way of define the section of role base -->
+ @switch(role){
+  @case('Admin') {
+    <div style="background-color: blue;"> This is Admin Section.</div>
+  }
+  @case('Employee') {
+    <div style="background-color: red;"> This is Employee Section.</div>
+  }
+  @default{
+    <div style="background-color: cyan;"> This is Guest Section.</div>
+  }
+}
+</div>

@@ -1,0 +1,23 @@
+<h1>Home Details(Child Componenet)</h1>
+<input type="text" #Ccomponent (keyup)="sendData(Ccomponent.value)"  />
+<div> Name: {{guestData.name}}</div>
+<div> Age: {{guestData.age}}</div>
+
+Property Binding <br>
+<span [innerHtml]="guestData.name"></span><br>
+Interpolation Binding <br>
+<span innerHtml="{{guestData.name}}"></span><br>
+
+Property Binding <br>
+<img [src]="imgpath" width="400px" height="250px" alt=" Property binding" /><br>
+Interpolation Binding <br>
+<img src="{{imgpath}}" width="400px" height="250px" alt=" Interpolation binding" /><br>
+
+<div style="font-size: 'bold'">style </div>
+<div [style.font-size]="isbold">style interpolation </div>
+<div [style]="{'font-size': isbold}">style binding </div><br>
+
+<div class="'text-color'">class </div>
+<div class="{'text-color': isClass}">class interpolation </div>
+<div [class]="classessToApply">class with multiple </div>
+<div [class]="{'text-color': isClass}">class binding </div>
